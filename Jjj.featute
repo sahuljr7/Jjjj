@@ -1,0 +1,77 @@
+Feature: Verification Module Run Debug | Profile
+  Background: User Signup
+    When Login in the healthapp application
+
+  @TC_1 Run Debug | Profile
+  Scenario: Verify the verification module is present or not
+    Given Scroll & click till "Verification" menu on the side bar.
+    Then Verify that the user is able to navigate to "Verification" section
+    Then Verify that "Add Requisition" button is visible.
+
+  @TC_2 Run | Debug | B Profile
+  Scenario: Verify all sub-modules are displayed correctly after Clicking on the "Verification" Module
+    Given Scroll & click till "Verification" menu on the side bar.
+    Then Click on "Inventory" under "Verification"
+    Then Verify these elements are visible on the page Requisition, Purchase Request, Purchase
+
+  @TC_3 Run | Debug | Profile
+  Scenario: Verify the presence of Requisition tab in inventory section with all fields
+    Given Scroll & click till "Verification" menu on the side bar.
+    Then Click on "Inventory" under "Verification"
+    Then Click on "Requisition" tab
+    Then Verify that "Search" button is visible.
+    Then Verify that "Filter" button is visible.
+
+  @TC_4 Run | Debug | Profile
+  Scenario: Verify navigation to another sub module after open the inventory module
+    Given Scroll & click till "Verification" menu on the side bar.
+    Then Click on "Inventory" under "Verification"
+    Then Click on "Purchase Request" tab
+    Then Verify that "Add Purchase Request" button is visible.
+
+  @TC_5 Run | Debug | Profile
+  Scenario: Verify navigation to another sub tab after opening the Requisition tab
+    Given Scroll & click till "Verification" menu on the side bar.
+    Then Click on "Inventory" under "Verification"
+    Then Click on "Requisition" tab
+    Then Click on "Pending Requests" tab
+    Then Verify that "Approve" button is visible.
+
+  @TC_6 Run | Debug | Profile
+  Scenario: Verify searching the data by picking the date filter
+    Given Scroll & click till "Verification" menu on the side bar.
+    Then Click on "Inventory" under "Verification"
+    When Choose the date from Jan 2020 to March 2024
+    When Click on OK button
+    Then Verify that all the dates present inside the requested date are within the range
+
+  @TC_7 Run | Debug | Profile
+  Scenario: Verify the tooltip and its text present on hover the mouse on Star
+    Given Scroll & click till "Verification" menu on the side bar.
+    Then Click on "Inventory" under "Verification"
+    Then Hover on the star and Verify tooltip text as "remember this date"
+    When Click on tooltip button
+    Then Verify that the date range remains the same
+
+  @TC_8 Run | Debug | Profile
+  Scenario: Verify dates are remembered correctly
+    Given Scroll & click till "Verification" menu on the side bar.
+    Then Click on "Inventory" under "Verification"
+    When Click on OK button
+    Then Verify that the date range remains the same
+
+  @TC_9 Run | Debug | Profile
+  Scenario: Verify data range by selecting "one week" option from drop down
+    Given Scroll & click till "Verification" menu on the side bar.
+    Then Click on "Inventory" under "Verification"
+    When Select "one week" option from the date range dropdown
+    Then Verify that the date range remains the same
+
+  @TC_10 Run | Debug | Profile
+  Scenario: Verify following radio buttons are selectable: Pending, Approved, Rejected & All
+    Given Scroll & click till "Verification" menu on the side bar.
+    Then Click on "Inventory" under "Verification"
+    Then Click on the "Pending" Radio button from List by Verification Status
+    Then Click on the "Approved" Radio button from List by Verification Status
+    Then Click on the "Rejected" Radio button from List by Verification Status
+    Then Click on the "All" Radio button from List by Verification Status
